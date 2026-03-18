@@ -338,40 +338,47 @@
    ============================================ */
 (function initCountUp() {
   var statNumbers = document.querySelectorAll('.stat-number');
+  if (!statNumbers.length) return;
   var animated = false;
+
+  function runCountUp() {
+    if (animated) return;
+    animated = true;
+    statNumbers.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var duration = 2000;
+      var step = target / (duration / 16);
+      var current = 0;
+
+      function updateCount() {
+        current += step;
+        if (current < target) {
+          el.textContent = Math.floor(current);
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = target;
+        }
+      }
+      updateCount();
+    });
+  }
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        statNumbers.forEach(function (el) {
-          var target = parseInt(el.getAttribute('data-target'), 10);
-          var duration = 2000;
-          var step = target / (duration / 16);
-          var current = 0;
-
-          function updateCount() {
-            current += step;
-            if (current < target) {
-              el.textContent = Math.floor(current);
-              requestAnimationFrame(updateCount);
-            } else {
-              el.textContent = target;
-            }
-          }
-
-          updateCount();
-        });
+      if (entry.isIntersecting) {
+        runCountUp();
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' });
 
-  var statsParent = document.querySelector('.stat-number');
-  if (statsParent) {
-    var statsSection = statsParent.closest('section') || statsParent.parentElement;
-    observer.observe(statsSection);
-  }
+  // Observe each stat card individually for better mobile triggering
+  statNumbers.forEach(function (el) {
+    observer.observe(el.closest('.bento-stat-card') || el.parentElement);
+  });
+
+  // Fallback: if stats never trigger after 5s, just show them
+  setTimeout(function () { runCountUp(); }, 5000);
 })();
 
 /* ============================================
