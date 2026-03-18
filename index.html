@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Althaf | Full Stack Developer & AI Engineer</title>
+  <meta name="description" content="Portfolio of Muhammed Althaf - Full Stack Developer, AI Engineer, DevOps Specialist, and Cloud Architect.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a2e', 600: '#25253d' },
+            accent: { blue: '#00d4ff', purple: '#7c3aed', pink: '#ec4899' }
+          },
+          screens: {
+            '3xl': '1600px',
+            '4xl': '1921px',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[9999] bg-dark-900 flex items-center justify-center transition-opacity duration-500">
+    <div class="preloader-spinner">
+      <div class="preloader-ring"></div>
+      <span class="text-accent-blue text-xl font-bold tracking-wider">MA</span>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursorGlow" class="cursor-glow hidden lg:block"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-[1000] py-5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 flex items-center justify-between">
+      <a href="#hero" class="text-2xl font-extrabold tracking-tighter text-white no-underline">MA<span class="text-accent-blue">.</span></a>
+      <ul id="navLinks" class="nav-links hidden md:flex items-center gap-1 lg:gap-2 list-none">
+        <li><a href="#about" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">About</a></li>
+        <li><a href="#skills" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">Skills</a></li>
+        <li><a href="#ai-skills" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">AI</a></li>
+        <li><a href="#tools" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">Tools</a></li>
+        <li><a href="#experience" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">Experience</a></li>
+        <li><a href="#projects" class="nav-link text-slate-400 text-sm font-medium px-3 py-2 lg:px-4 rounded-lg transition-all duration-300 hover:text-white relative no-underline">Projects</a></li>
+        <li><a href="#contact" class="nav-link-cta bg-gradient-to-r from-accent-blue to-accent-purple text-white text-sm font-semibold px-5 py-2 rounded-full no-underline transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5">Contact</a></li>
+      </ul>
+      <button id="hamburger" class="hamburger md:hidden flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 z-[1001]" aria-label="Toggle menu">
+        <span class="bar w-[25px] h-[2px] bg-white rounded-sm transition-all duration-300"></span>
+        <span class="bar w-[25px] h-[2px] bg-white rounded-sm transition-all duration-300"></span>
+        <span class="bar w-[25px] h-[2px] bg-white rounded-sm transition-all duration-300"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden">
+    <canvas id="particleCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
+    <!-- Floating geometric shapes -->
+    <div class="geo-shape geo-shape-1"></div>
+    <div class="geo-shape geo-shape-2"></div>
+    <div class="geo-shape geo-shape-3"></div>
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-2 sm:gap-4 lg:gap-12 min-h-[100svh] py-20 lg:py-0">
+        <!-- Left: Text Content -->
+        <div class="text-center lg:text-left lg:max-w-[55%] xl:max-w-[50%]">
+          <p class="text-accent-blue text-xs sm:text-sm md:text-base font-medium tracking-[3px] uppercase mb-3 sm:mb-4 animate-on-scroll" data-animation="fade-down">Hello, I'm</p>
+          <h1 class="hero-name-gradient text-5xl sm:text-6xl md:text-5xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-extrabold leading-[1.05] mb-5 tracking-tighter animate-on-scroll" data-animation="scale">Muhammed Althaf</h1>
+          <div class="flex items-center justify-center lg:justify-start h-[2em] text-base sm:text-lg md:text-xl lg:text-2xl font-mono text-slate-400 mb-4 animate-on-scroll" data-animation="fade-up">
+            <span class="text-accent-blue mr-1">&gt; </span>
+            <span id="typewriter" class="text-accent-blue font-semibold"></span>
+            <span class="text-accent-blue animate-blink font-light ml-0.5">|</span>
+          </div>
+          <p class="text-slate-500 text-sm sm:text-base lg:text-lg max-w-lg mx-auto lg:mx-0 mb-8 sm:mb-10 animate-on-scroll" data-animation="fade-up" data-delay="200">Building scalable applications across healthcare, fintech, and enterprise systems</p>
+          <div class="flex gap-4 justify-center lg:justify-start flex-wrap animate-on-scroll" data-animation="fade-up" data-delay="400">
+            <a href="#projects" class="btn-primary inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white no-underline transition-all duration-300">View My Work</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-sm sm:text-base font-semibold text-white no-underline border-2 border-white/10 hover:bg-gradient-to-r hover:from-accent-blue hover:to-accent-purple hover:border-transparent transition-all duration-300 hover:-translate-y-0.5">Contact Me</a>
+          </div>
+        </div>
+        <!-- Right: Character Image -->
+        <div class="hero-character-wrapper w-[50%] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] lg:w-auto lg:max-w-[40%] xl:max-w-[42%] animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="hero-character-glow">
+            <img src="avatar.png" alt="Muhammed Althaf" class="hero-character-img w-full max-h-[28vh] sm:max-h-[32vh] md:max-h-[38vh] lg:max-h-[75vh] object-contain drop-shadow-2xl">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center z-10">
+      <div class="text-center text-slate-500 text-xs tracking-widest">
+        <span>Scroll Down</span>
+        <div class="mt-1 flex justify-center animate-scroll-bounce">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
+    <div class="about-floating-shapes"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">About Me</h2>
+      <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
+
+      <!-- Bento Grid -->
+      <div class="bento-grid">
+
+        <!-- Avatar Card - Professional photo -->
+        <div class="bento-card bento-avatar-card animate-on-scroll" data-animation="fade-right">
+          <div class="bento-character-showcase">
+            <img src="althaf.png" alt="Muhammed Althaf" class="bento-character-img">
+          </div>
+          <h3 class="text-xl sm:text-2xl font-bold text-center mt-4 text-white">Muhammed Althaf</h3>
+          <p class="text-accent-blue text-sm font-medium text-center mt-1">Full Stack Developer & AI Engineer</p>
+          <div class="flex justify-center gap-3 mt-4">
+            <a href="https://linkedin.com/in/dev-muhammed-althaf" class="bento-social-icon" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com/dev-althaf" class="bento-social-icon" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="mailto:muhammedalthaf.althaf@gmail.com" class="bento-social-icon" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bio Card -->
+        <div class="bento-card bento-bio-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="bento-card-label">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>WHO I AM</span>
+          </div>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mt-4">
+            Versatile Full Stack Developer with 6+ years of experience designing and implementing scalable, high-performance applications across diverse industries. Proven expertise in JavaScript/TypeScript, Python, .NET, and Flutter for mobile development.
+          </p>
+          <p class="text-slate-400 text-sm leading-relaxed mt-3">
+            Adept at solving complex technical challenges through efficient algorithm design, robust system architecture, and industry best practices. From healthcare platforms to fintech integrations and vehicle telematics systems.
+          </p>
+        </div>
+
+        <!-- Stats Cards - 4 individual bento cards -->
+        <div class="bento-card bento-stat-card animate-on-scroll" data-animation="scale" data-delay="200">
+          <span class="bento-stat-number stat-number" data-target="7">0</span><span class="bento-stat-plus">+</span>
+          <span class="bento-stat-label">Years Experience</span>
+        </div>
+        <div class="bento-card bento-stat-card animate-on-scroll" data-animation="scale" data-delay="300">
+          <span class="bento-stat-number stat-number" data-target="50">0</span><span class="bento-stat-plus">+</span>
+          <span class="bento-stat-label">Projects Completed</span>
+        </div>
+        <div class="bento-card bento-stat-card animate-on-scroll" data-animation="scale" data-delay="400">
+          <span class="bento-stat-number stat-number" data-target="30">0</span><span class="bento-stat-plus">+</span>
+          <span class="bento-stat-label">Technologies</span>
+        </div>
+        <div class="bento-card bento-stat-card animate-on-scroll" data-animation="scale" data-delay="500">
+          <span class="bento-stat-number stat-number" data-target="15">0</span><span class="bento-stat-plus">+</span>
+          <span class="bento-stat-label">AI Solutions</span>
+        </div>
+
+        <!-- Tech Marquee -->
+        <div class="bento-card bento-marquee-card animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="marquee-wrapper">
+            <div class="marquee-track">
+              <span class="marquee-item">Laravel</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Vue.js</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">React</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Python</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Node.js</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Docker</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">AWS</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Azure</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">LangChain</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Claude API</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">PostgreSQL</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Redis</span>
+              <span class="marquee-dot">&middot;</span>
+              <!-- Duplicate for seamless loop -->
+              <span class="marquee-item">Laravel</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Vue.js</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">React</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Python</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Node.js</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Docker</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">AWS</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Azure</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">LangChain</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Claude API</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">PostgreSQL</span>
+              <span class="marquee-dot">&middot;</span>
+              <span class="marquee-item">Redis</span>
+              <span class="marquee-dot">&middot;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom badge -->
+        <div class="bento-card bento-badge-card animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="text-sm text-slate-300 font-medium">Kerala, India</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section - Circular Progress Rings -->
+  <section id="skills" class="py-20 sm:py-24 lg:py-32 relative">
+    <div class="circuit-bg"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Technical Skills</h2>
+      <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Frontend -->
+        <div class="skill-ring-card skill-ring-card-blue glass-card rounded-2xl p-6 lg:p-8 animate-on-scroll" data-animation="fade-up" data-delay="0">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-blue-400">Frontend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="skill-tag" style="--tag-color: #3b82f6">React.js</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">Next.js</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">Angular</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">HTML5</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">CSS3</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">Tailwind CSS</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">Material UI</span>
+            <span class="skill-tag" style="--tag-color: #3b82f6">Redux</span>
+          </div>
+        </div>
+        <!-- Backend -->
+        <div class="skill-ring-card skill-ring-card-purple glass-card rounded-2xl p-6 lg:p-8 animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-purple-400">Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="skill-tag" style="--tag-color: #a855f7">Node.js</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">Express.js</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">Python</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">Django</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">FastAPI</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">.NET Core</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">C#</span>
+            <span class="skill-tag" style="--tag-color: #a855f7">ASP.NET</span>
+          </div>
+        </div>
+        <!-- DevOps -->
+        <div class="skill-ring-card skill-ring-card-cyan glass-card rounded-2xl p-6 lg:p-8 animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-cyan-400">DevOps</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="skill-tag" style="--tag-color: #06b6d4">Docker</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">Kubernetes</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">CI/CD</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">Jenkins</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">GitHub Actions</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">Azure DevOps</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">AWS</span>
+            <span class="skill-tag" style="--tag-color: #06b6d4">Azure</span>
+          </div>
+        </div>
+        <!-- Cloud & Database -->
+        <div class="skill-ring-card skill-ring-card-emerald glass-card rounded-2xl p-6 lg:p-8 animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-emerald-400">Cloud & DB</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="skill-tag" style="--tag-color: #10b981">MySQL</span>
+            <span class="skill-tag" style="--tag-color: #10b981">PostgreSQL</span>
+            <span class="skill-tag" style="--tag-color: #10b981">SQL Server</span>
+            <span class="skill-tag" style="--tag-color: #10b981">MongoDB</span>
+            <span class="skill-tag" style="--tag-color: #10b981">DynamoDB</span>
+            <span class="skill-tag" style="--tag-color: #10b981">Redis</span>
+            <span class="skill-tag" style="--tag-color: #10b981">Kafka</span>
+            <span class="skill-tag" style="--tag-color: #10b981">RabbitMQ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Skills Section -->
+  <section id="ai-skills" class="py-20 sm:py-24 lg:py-32 relative">
+    <!-- Circuit board background -->
+    <div class="circuit-bg"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">AI & Intelligence</h2>
+      <div class="section-title-bar mx-auto mb-4"></div>
+      <p class="text-slate-400 text-sm sm:text-base text-center max-w-2xl mx-auto mb-12 sm:mb-16 animate-on-scroll" data-animation="fade-up" data-delay="100">
+        Architecting the future with advanced language models, autonomous agents, and intelligent data systems.
+      </p>
+
+      <!-- 3 Capability Bento Cards -->
+      <div class="space-y-6">
+
+        <!-- Card 1: Language Models & APIs -->
+        <div class="ai-capability-card animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="ai-capability-content">
+            <div class="ai-capability-icon" style="--glow-color: #00d4ff">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5v1.5h3a3 3 0 0 1 3 3v1h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-1a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v1h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-1a3 3 0 0 1 3-3h3V9.5A4 4 0 0 1 8 6a4 4 0 0 1 4-4z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Language Models & APIs</h3>
+            <p class="text-slate-400 text-sm mb-4">Building production-grade applications with state-of-the-art LLMs. Specializing in prompt engineering, model selection, and performance optimization.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="ai-pill" style="--pill-color: #00d4ff">Claude API</span>
+              <span class="ai-pill" style="--pill-color: #10b981">OpenAI API</span>
+              <span class="ai-pill" style="--pill-color: #3b82f6">Gemini</span>
+              <span class="ai-pill" style="--pill-color: #a855f7">LLM Fine-tuning</span>
+            </div>
+          </div>
+          <div class="ai-capability-visual">
+            <div class="ai-code-block">
+              <div class="ai-code-dots">
+                <span style="background:#ff5f57"></span>
+                <span style="background:#ffbd2e"></span>
+                <span style="background:#28c840"></span>
+              </div>
+              <pre class="ai-code-text"><span class="text-purple-400">POST</span> <span class="text-slate-400">/v1/chat/completions</span>
+{
+  <span class="text-cyan-400">"model"</span>: <span class="text-green-400">"claude-4"</span>,
+  <span class="text-cyan-400">"messages"</span>: [{
+    <span class="text-cyan-400">"role"</span>: <span class="text-green-400">"user"</span>,
+    <span class="text-cyan-400">"content"</span>: <span class="text-green-400">"Analyze..."</span>
+  }]
+}
+<span class="text-slate-500">&#8594; 200 OK</span>
+<span class="text-emerald-400">Response generated in 0.8s</span></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: AI Agents & Orchestration -->
+        <div class="ai-capability-card animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="ai-capability-content">
+            <div class="ai-capability-icon" style="--glow-color: #a855f7">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="19" cy="6" r="2"/>
+                <circle cx="5" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="19" cy="18" r="2"/>
+                <path d="M5 8v8M12 8v8M19 8v8"/>
+                <path d="M5 12h14"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">AI Agents & Orchestration</h3>
+            <p class="text-slate-400 text-sm mb-4">Designing autonomous agent systems that reason, plan, and execute complex multi-step tasks with tool integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="ai-pill" style="--pill-color: #a855f7">LangChain</span>
+              <span class="ai-pill" style="--pill-color: #7c3aed">LangGraph</span>
+              <span class="ai-pill" style="--pill-color: #00d4ff">n8n</span>
+              <span class="ai-pill" style="--pill-color: #f59e0b">CrewAI</span>
+              <span class="ai-pill" style="--pill-color: #10b981">AutoGen</span>
+              <span class="ai-pill" style="--pill-color: #ec4899">Agent Skills</span>
+              <span class="ai-pill" style="--pill-color: #06b6d4">Agent Swarming</span>
+            </div>
+          </div>
+          <div class="ai-capability-visual">
+            <div class="ai-node-graph">
+              <!-- Node: Input -->
+              <div class="ai-node" style="top: 50%; left: 8%; transform: translateY(-50%);">Input</div>
+              <!-- Line: Input -> Process -->
+              <div class="ai-node-line" style="top: 50%; left: calc(8% + 48px); width: calc(33% - 48px); transform: translateY(-50%);"></div>
+              <!-- Node: Process -->
+              <div class="ai-node" style="top: 50%; left: 33%; transform: translateY(-50%);">Agent</div>
+              <!-- Line: Process -> Reason (branch up) -->
+              <div class="ai-node-line" style="top: 25%; left: calc(33% + 48px); width: calc(58% - 33% - 48px); transform: translateY(-50%);"></div>
+              <!-- Line: Process -> Output (branch down) -->
+              <div class="ai-node-line" style="top: 75%; left: calc(33% + 48px); width: calc(58% - 33% - 48px); transform: translateY(-50%);"></div>
+              <!-- Vertical connector from Process -->
+              <div class="ai-node-line-v" style="left: calc(33% + 24px); top: 25%; height: 50%;"></div>
+              <!-- Node: Reason (top branch) -->
+              <div class="ai-node" style="top: 25%; left: 58%; transform: translateY(-50%);">Tool</div>
+              <!-- Node: Output (bottom branch) -->
+              <div class="ai-node" style="top: 75%; left: 58%; transform: translateY(-50%);">Think</div>
+              <!-- Lines converging to Output -->
+              <div class="ai-node-line" style="top: 25%; left: calc(58% + 48px); width: calc(82% - 58% - 48px); transform: translateY(-50%);"></div>
+              <div class="ai-node-line" style="top: 75%; left: calc(58% + 48px); width: calc(82% - 58% - 48px); transform: translateY(-50%);"></div>
+              <!-- Vertical connector to Output -->
+              <div class="ai-node-line-v" style="left: calc(82%); top: 25%; height: 50%;"></div>
+              <!-- Node: Final Output -->
+              <div class="ai-node" style="top: 50%; left: 82%; transform: translateY(-50%);">Out</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: RAG & Knowledge Systems -->
+        <div class="ai-capability-card animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="ai-capability-content">
+            <div class="ai-capability-icon" style="--glow-color: #06b6d4">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                <circle cx="18" cy="18" r="3"/>
+                <path d="M20.2 20.2L22 22"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">RAG & Knowledge Systems</h3>
+            <p class="text-slate-400 text-sm mb-4">Creating intelligent retrieval systems that understand context and deliver precise, relevant answers from vast knowledge bases.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="ai-pill" style="--pill-color: #06b6d4">Vector DBs</span>
+              <span class="ai-pill" style="--pill-color: #3b82f6">Embeddings</span>
+              <span class="ai-pill" style="--pill-color: #10b981">Pinecone</span>
+              <span class="ai-pill" style="--pill-color: #f59e0b">ChromaDB</span>
+              <span class="ai-pill" style="--pill-color: #a855f7">Prompt Engineering</span>
+            </div>
+          </div>
+          <div class="ai-capability-visual">
+            <div class="ai-rag-visual">
+              <!-- Search bar -->
+              <div class="ai-rag-search">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span class="ai-rag-search-text">How does the authentication flow work?</span>
+              </div>
+              <!-- Arrow down -->
+              <div class="ai-rag-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </div>
+              <!-- Result cards -->
+              <div class="ai-rag-results">
+                <div class="ai-rag-result-card">
+                  <div class="dot"></div>
+                </div>
+                <div class="ai-rag-result-card">
+                  <div class="dot"></div>
+                </div>
+                <div class="ai-rag-result-card">
+                  <div class="dot"></div>
+                </div>
+              </div>
+              <div class="ai-rag-score">
+                <span class="text-emerald-400" style="font-size: 0.6rem; font-weight: 600;">98.7% relevance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Card 4: AI-Powered Coding & Agent Systems -->
+        <div class="ai-capability-card animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <div class="ai-capability-content">
+            <div class="ai-capability-icon" style="--glow-color: #f59e0b">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">AI-Powered Coding & Agents</h3>
+            <p class="text-slate-400 text-sm mb-4">Leveraging AI coding assistants and multi-agent architectures to build, debug, and ship production software at 10x speed.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="ai-pill" style="--pill-color: #f59e0b">Claude Code</span>
+              <span class="ai-pill" style="--pill-color: #10b981">MCP Servers</span>
+              <span class="ai-pill" style="--pill-color: #00d4ff">Codex</span>
+              <span class="ai-pill" style="--pill-color: #a855f7">Augment Code</span>
+              <span class="ai-pill" style="--pill-color: #ec4899">Cursor</span>
+              <span class="ai-pill" style="--pill-color: #3b82f6">GitHub Copilot</span>
+              <span class="ai-pill" style="--pill-color: #06b6d4">Roo Code</span>
+              <span class="ai-pill" style="--pill-color: #f97316">Agent Skills</span>
+              <span class="ai-pill" style="--pill-color: #8b5cf6">Agent Swarming</span>
+            </div>
+          </div>
+          <div class="ai-capability-visual">
+            <!-- Terminal visual showing AI coding workflow -->
+            <div class="ai-code-block">
+              <div class="ai-code-dots">
+                <span style="background:#ff5f57"></span>
+                <span style="background:#ffbd2e"></span>
+                <span style="background:#28c840"></span>
+              </div>
+              <pre class="ai-code-text"><span class="text-amber-400">$ claude</span> <span class="text-slate-400">--model opus</span>
+<span class="text-slate-500">› Analyzing codebase...</span>
+<span class="text-slate-500">› Connecting MCP servers...</span>
+<span class="text-emerald-400">✓ 3 agents spawned</span>
+<span class="text-purple-400">  Agent 1:</span> <span class="text-slate-400">Code review</span>
+<span class="text-purple-400">  Agent 2:</span> <span class="text-slate-400">Test generation</span>
+<span class="text-purple-400">  Agent 3:</span> <span class="text-slate-400">Deployment</span>
+<span class="text-emerald-400">✓ Swarm complete — 0 errors</span></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Badge Row -->
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-12 animate-on-scroll" data-animation="fade-up" data-delay="500">
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V12h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4v2a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4V9.5A4 4 0 0 1 8 6a4 4 0 0 1 4-4z"/></svg>
+          <span>Machine Learning</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h4"/></svg>
+          <span>NLP</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Computer Vision</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM4 12h8v8H4zM16 12h4v8h-4z"/></svg>
+          <span>Data Pipeline</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <span>Prompt Engineering</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>AI Coding</span>
+        </div>
+        <div class="ai-badge-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <span>Agent Swarming</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools & Technologies Section -->
+  <section id="tools" class="py-20 sm:py-24 lg:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Tools & Technologies</h2>
+      <p class="text-slate-400 text-center text-sm sm:text-base max-w-2xl mx-auto mb-10 sm:mb-12 animate-on-scroll" data-animation="fade-up" data-delay="100">A curated collection of languages, frameworks, and tools I use to bring digital ideas to life.</p>
+
+      <!-- Category Filter Tabs -->
+      <div class="tools-tab-bar flex gap-2 justify-center mb-10 sm:mb-12 animate-on-scroll" data-animation="fade-up" data-delay="200">
+        <button class="tools-tab active" data-filter="all">All</button>
+        <button class="tools-tab" data-filter="development">Development</button>
+        <button class="tools-tab" data-filter="frameworks">Frameworks</button>
+        <button class="tools-tab" data-filter="devops">DevOps</button>
+        <button class="tools-tab" data-filter="cloud-db">Cloud & DB</button>
+        <button class="tools-tab" data-filter="design-testing">Design & Testing</button>
+      </div>
+
+      <!-- Tools Grid -->
+      <div id="toolsGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
+
+        <!-- === Development === -->
+        <div class="tool-card-new" data-category="development" data-brand-color="#777BB4">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6c.6 3.3 3 5.7 6.3 6.3M7 3c-1 2-1 5 1 7s5 2 7 1"/><path d="M12 6c.6 3.3 3 5.7 6.3 6.3M17 3c-1 2-1 5 1 7"/><ellipse cx="16" cy="17" rx="5" ry="4"/><path d="M13.5 17h5"/></svg>
+          </div>
+          <span class="tool-card-name">PHP</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#3776AB">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 11c.5-2 2-3 3.5-3 2 0 3 1.2 2.5 3-.5 1.5-2 2.5-3.5 2.5H9"/><path d="M10.5 16c.5-1 1.5-1.5 2.5-1.5 1.5 0 2.2.8 1.8 2-.4 1.2-1.8 2-3 2H10"/></svg>
+          </div>
+          <span class="tool-card-name">Python</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#F7DF1E">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v7c0 1.5-.8 2.5-2.5 2.5"/><path d="M16 8c1.5 0 2.5.8 2.5 2s-1 2-2.5 2c-1.5 0-2.5.8-2.5 2s1 2 2.5 2"/></svg>
+          </div>
+          <span class="tool-card-name">JavaScript</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#3178C6">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M10 8v10M7 8h6"/><path d="M16 8c1.5 0 2.5.8 2.5 2s-1 2-2.5 2c-1.5 0-2.5.8-2.5 2s1 2 2.5 2"/></svg>
+          </div>
+          <span class="tool-card-name">TypeScript</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#339933">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l-3.5 6H5l7 12 7-12h-3.5L12 2z"/><circle cx="12" cy="14" r="2"/></svg>
+          </div>
+          <span class="tool-card-name">Node.js</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#E34F26">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3l1.8 16L12 21l6.2-2L20 3H4z"/><path d="M8 8h8l-.5 5-3.5 1.5L8.5 13l-.2-2h2.5"/></svg>
+          </div>
+          <span class="tool-card-name">HTML5</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#1572B6">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3l1.8 16L12 21l6.2-2L20 3H4z"/><path d="M8 8h8l-.2 2H9l.2 2h6.3l-.5 5-3 1-3-1-.2-2h2l.1 1 1.1.3 1.1-.3.2-2H8.5"/></svg>
+          </div>
+          <span class="tool-card-name">CSS3</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#512BD4">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h2l2 8 2-8h2"/></svg>
+          </div>
+          <span class="tool-card-name">C#</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#512BD4">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <span class="tool-card-name">.NET Core</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#DD0031">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 2,7 4,19 12,22 20,19 22,7"/><path d="M12 6l-6 10h3l1-2h4l1 2h3L12 6z"/></svg>
+          </div>
+          <span class="tool-card-name">Angular</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#000000">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 22V12"/><path d="M20 7l-8 5-8-5"/></svg>
+          </div>
+          <span class="tool-card-name">Express.js</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#092E20">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h3v8H8z"/><path d="M14 8h3v5a3 3 0 0 1-3 3"/></svg>
+          </div>
+          <span class="tool-card-name">Django</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="development" data-brand-color="#009688">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12l-6 8h8L8 21l3-8H4l2-10z"/></svg>
+          </div>
+          <span class="tool-card-name">FastAPI</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- === Frameworks === -->
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#FF2D20">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3l7 4v8l-7-4V3z"/><path d="M14 7l7 4v8l-7-4V7z"/><path d="M3 3l7 4 7-4"/><path d="M10 15l7-4"/></svg>
+          </div>
+          <span class="tool-card-name">Laravel</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#4FC08D">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3l10 18L22 3h-4l-6 10L6 3H2z"/></svg>
+          </div>
+          <span class="tool-card-name">Vue.js</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#61DAFB">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+          </div>
+          <span class="tool-card-name">React</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#ffffff">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 22V12"/><path d="M20 7l-8 5-8-5"/></svg>
+          </div>
+          <span class="tool-card-name">Next.js</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#06B6D4">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h12l-6 8h8L8 21l3-8H4l2-10z"/></svg>
+          </div>
+          <span class="tool-card-name">Tailwind CSS</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#0678BE">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-3 4-8 6-8 12a8 8 0 1 0 16 0c0-6-5-8-8-12z"/></svg>
+          </div>
+          <span class="tool-card-name">Drupal</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#02569B">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6h12l-6 6 6 6H6l6-6-6-6z"/></svg>
+          </div>
+          <span class="tool-card-name">Flutter</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#61DAFB">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+          </div>
+          <span class="tool-card-name">React Native</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="frameworks" data-brand-color="#512BD4">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <span class="tool-card-name">ASP.NET</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- === DevOps === -->
+        <div class="tool-card-new" data-category="devops" data-brand-color="#2496ED">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="10" width="4" height="4"/><rect x="5" y="10" width="4" height="4"/><rect x="9" y="10" width="4" height="4"/><rect x="13" y="10" width="4" height="4"/><rect x="5" y="6" width="4" height="4"/><rect x="9" y="6" width="4" height="4"/><rect x="9" y="2" width="4" height="4"/><path d="M19 13c1.5.5 3 .5 4-1-1.5-2-4-2-5-1"/></svg>
+          </div>
+          <span class="tool-card-name">Docker</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#F05032">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/><circle cx="12" cy="3" r="1.5"/><circle cx="18" cy="18" r="1.5"/><line x1="14.5" y1="14.5" x2="16.5" y2="16.5"/></svg>
+          </div>
+          <span class="tool-card-name">Git</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#2088FF">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/><path d="M12 15l3 3-3 3"/></svg>
+          </div>
+          <span class="tool-card-name">GitHub Actions</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#009639">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 20l7-16 7 16"/><path d="M2 20h20"/><path d="M12 4v6"/></svg>
+          </div>
+          <span class="tool-card-name">Nginx</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#FCC624">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/><path d="M8 4V2M16 4V2"/></svg>
+          </div>
+          <span class="tool-card-name">Linux</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#00d4ff">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+          </div>
+          <span class="tool-card-name">CI/CD</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#326CE5">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <span class="tool-card-name">Kubernetes</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#D24939">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/><path d="M12 22V12"/><path d="M20 7l-8 5-8-5"/></svg>
+          </div>
+          <span class="tool-card-name">Jenkins</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="devops" data-brand-color="#0078D7">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l-4 14h5l6-14H6z"/><path d="M11 7l5 14h5L11 7z"/></svg>
+          </div>
+          <span class="tool-card-name">Azure DevOps</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- === Cloud & DB === -->
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#FF9900">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <span class="tool-card-name">AWS</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#0089D6">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l-4 14h5l6-14H6z"/><path d="M11 7l5 14h5L11 7z"/></svg>
+          </div>
+          <span class="tool-card-name">Azure</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#4479A1">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="tool-card-name">MySQL</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#336791">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          </div>
+          <span class="tool-card-name">PostgreSQL</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#DC382D">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+          </div>
+          <span class="tool-card-name">Redis</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#F38020">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M13 10l-2 4h3l-1 4"/></svg>
+          </div>
+          <span class="tool-card-name">Cloudflare</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#47A248">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c-3 0-7 2-7 8s4 12 7 12c3 0 7-6 7-12s-4-8-7-8z"/><path d="M12 2v20"/></svg>
+          </div>
+          <span class="tool-card-name">MongoDB</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#4053D6">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          </div>
+          <span class="tool-card-name">DynamoDB</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#CC2927">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="tool-card-name">SQL Server</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#231F20">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z" rx="2"/><path d="M8 8l4 4-4 4M12 16h4"/></svg>
+          </div>
+          <span class="tool-card-name">Kafka</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="cloud-db" data-brand-color="#FF6600">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="16" r="3"/><path d="M10.5 10.5l3 3"/></svg>
+          </div>
+          <span class="tool-card-name">RabbitMQ</span>
+          <div class="tool-proficiency" data-level="3"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+
+        <!-- === Design & Testing === -->
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#F24E1E">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg>
+          </div>
+          <span class="tool-card-name">Figma</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#FF6C37">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          </div>
+          <span class="tool-card-name">Postman</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#007ACC">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 3l5 2v14l-5 2-8-7-3 2V8l3 2 8-7z"/><path d="M8 8l-3-2v12l3-2"/></svg>
+          </div>
+          <span class="tool-card-name">VS Code</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#0052CC">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 12l10 10 10-10L12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <span class="tool-card-name">Jira</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#C21325">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z" rx="2"/><path d="M8 12h4v4H8z"/><path d="M9 8l3 4"/><path d="M15 8l-3 4"/></svg>
+          </div>
+          <span class="tool-card-name">Jest</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#3F9CD6">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.5 2.5L16 9"/><path d="M4 4l16 16"/></svg>
+          </div>
+          <span class="tool-card-name">PHPUnit</span>
+          <div class="tool-proficiency" data-level="5"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#43B02A">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8l3 3-3 3M12 16h4"/></svg>
+          </div>
+          <span class="tool-card-name">Selenium</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+        <div class="tool-card-new" data-category="design-testing" data-brand-color="#60A839">
+          <div class="tool-card-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 12h8M8 8h8M8 16h4"/></svg>
+          </div>
+          <span class="tool-card-name">Scrapy</span>
+          <div class="tool-proficiency" data-level="4"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Professional Journey</h2>
+      <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
+      <div class="timeline relative mx-auto py-5">
+        <!-- Center line (desktop) -->
+        <div class="timeline-line absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-blue -translate-x-1/2 hidden md:block"></div>
+        <!-- Left line (mobile) -->
+        <div class="timeline-line-mobile absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-accent-purple to-accent-blue md:hidden"></div>
+
+        <!-- Item 1 — Left side (Current) -->
+        <div class="timeline-item relative md:flex md:justify-end pb-12 md:pb-20 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-right">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:mr-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4 md:justify-end">
+                <span class="inline-block text-xs font-bold text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full tracking-wide">Mar 2025 - Present</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1 md:text-right">Project Manager / Full Stack Developer</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4 md:text-right">Digital-01 | Remote</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Developed multiple AI-powered applications and integrations using Perplexity, OpenAI RAG, and Google Vertex AI — driving intelligent content delivery across client platforms</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Modernized large-scale Drupal 7 legacy system with AI-based coding, server management, and Azure cloud migration</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Leading development of a gym membership platform and a tailoring management app with web-to-PDF export for precise measurement labels</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Spearheading AI-first development workflow using Claude Code, Cursor, and agent-based coding to accelerate delivery across all projects</span></li>
+              </ul>
+              <div class="mt-4 md:text-right"><a href="https://01-digital.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>01-digital.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 — Right side -->
+        <div class="timeline-item relative md:flex pb-12 md:pb-20 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-left">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-purple to-accent-blue border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:ml-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-block text-xs font-bold text-accent-purple bg-accent-purple/10 px-4 py-1.5 rounded-full tracking-wide">May 2023 - Feb 2025</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1">Software Developer</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4">S2t Cyberspace | Remote</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Solely managed and delivered a feature-rich healthcare platform end-to-end — from architecture to deployment with micro-frontend approach</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Architected secure authentication with Keycloak SSO, implemented AI-driven analytics using OpenAI for personalized treatment plans</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Built fintech integrations with multiple payment processors, accounting platforms (Xero), and real-time chat for provider-client communication</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Engineered geospatial visualization module with Leaflet and OpenStreetMap for location-based healthcare services</span></li>
+              </ul>
+              <div class="mt-4"><a href="https://www.s2t.ai/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>s2t.ai</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 — Left side -->
+        <div class="timeline-item relative md:flex md:justify-end pb-12 md:pb-20 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-right">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:mr-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4 md:justify-end">
+                <span class="inline-block text-xs font-bold text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full tracking-wide">Jan 2023 - Apr 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1 md:text-right">Co-Founder & Technical Lead</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4 md:text-right">Bitroxy Solutions | Dubai, UAE</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Co-founded a tech startup — spearheaded technical roadmap, architecture decisions, and feature prioritization for a chef marketplace platform</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Developed blockchain-based IoT alert system as POC — integrated flame, temperature, and smoke sensors via Node-RED to fetch real-time data and store it on a local blockchain using Ganache</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Implemented secure payment processing with Telr integration, established coding standards, and set up automated CI/CD testing workflows</span></li>
+              </ul>
+              <div class="mt-4 md:text-right"><a href="https://bitroxy.co/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>bitroxy.co</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 — Right side -->
+        <div class="timeline-item relative md:flex pb-12 md:pb-20 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-left">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-purple to-accent-blue border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:ml-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-block text-xs font-bold text-accent-purple bg-accent-purple/10 px-4 py-1.5 rounded-full tracking-wide">Jun 2022 - Jan 2023</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1">Software Developer</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4">Esoftsat (GlobalTT) | Dubai, UAE</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Enhanced and maintained enterprise BSS/OSS platform serving satellite telecommunications providers across multiple regions</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Gained deep expertise in satellite internet infrastructure — NMS management, bandwidth allocation, channel control, and NX Allot integration for complete network setup</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Built ERP monitoring capabilities that reduced system downtime, optimized SQL Server queries, and integrated with bandwidth controllers and satellite equipment</span></li>
+              </ul>
+              <div class="mt-4"><a href="https://www.globaltt.com/en/index.html" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>globaltt.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 — Left side -->
+        <div class="timeline-item relative md:flex md:justify-end pb-12 md:pb-20 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-right">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:mr-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4 md:justify-end">
+                <span class="inline-block text-xs font-bold text-accent-blue bg-accent-blue/10 px-4 py-1.5 rounded-full tracking-wide">Oct 2019 - May 2022</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1 md:text-right">Senior Software Developer</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4 md:text-right">V Zone International LLC | Dubai, UAE</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Built a full-fledged vehicle tracking system end-to-end — from IoT gateway data ingestion to real-time tracking, geofencing, alerts, and comprehensive fleet reports</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Developed internal device management tools for onboarding, company allocation, and diagnostics — designed fault-tolerant data pipeline with Apache Kafka and proposed Apache Flink for cloud migration</span></li>
+                <li class="flex items-start gap-2.5 md:flex-row-reverse md:text-right"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Built comprehensive fleet operations reporting engine and cross-platform mobile app with offline-first architecture using Flutter</span></li>
+              </ul>
+              <div class="mt-4 md:text-right"><a href="https://www.vzoneinternational.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>vzoneinternational.com</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 — Right side -->
+        <div class="timeline-item relative md:flex pb-4 pl-14 md:pl-0 animate-on-scroll" data-animation="fade-left">
+          <div class="timeline-dot-animated absolute top-2 w-5 h-5 rounded-full bg-gradient-to-br from-accent-purple to-accent-blue border-[3px] border-dark-800 z-10 left-[11px] md:left-1/2 md:-translate-x-1/2"></div>
+          <div class="md:w-[calc(50%-40px)] md:ml-auto">
+            <div class="timeline-card-enhanced glass-card rounded-2xl p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-block text-xs font-bold text-accent-purple bg-accent-purple/10 px-4 py-1.5 rounded-full tracking-wide">Jul 2018 - Jul 2019</span>
+              </div>
+              <h3 class="text-xl font-bold mb-1">Software Developer</h3>
+              <h4 class="text-sm text-purple-400 font-semibold mb-4">Unicourt | Mangalore, India</h4>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Designed distributed web scraping architecture for legal data acquisition — processing millions of court records across jurisdictions</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-blue mt-1 shrink-0">&#9670;</span><span>Developed machine learning models for document classification and entity extraction, built custom OCR solutions with PyTesseract</span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent-purple mt-1 shrink-0">&#9670;</span><span>Implemented microservices architecture with event-driven communication patterns for scalable data processing pipelines</span></li>
+              </ul>
+              <div class="mt-4"><a href="https://unicourt.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:text-white transition-colors no-underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>unicourt.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 sm:py-24 lg:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Featured Projects</h2>
+      <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Project 1 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="0">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-blue-600/30 via-purple-600/20 to-cyan-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V12h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4v2a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4V9.5A4 4 0 0 1 8 6a4 4 0 0 1 4-4z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-accent-blue"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">AI-Powered Content Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Large-scale Drupal 7 platform enhanced with AI integrations — Perplexity, OpenAI RAG, and Google Vertex AI for intelligent content search and delivery to millions of users.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Drupal</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">OpenAI RAG</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Vertex AI</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://www.al-islam.org" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-emerald-600/30 via-teal-600/20 to-green-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-emerald-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Healthcare Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Feature-rich healthcare platform with micro-frontend architecture, Keycloak SSO, AI-driven analytics, fintech integrations, real-time chat, and geospatial visualization.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Keycloak</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">OpenAI</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-orange-600/30 via-red-600/20 to-yellow-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-orange-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Vehicle Tracking System</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Full-fledged fleet management platform — from IoT gateway ingestion to real-time GPS tracking, geofencing, alerts, comprehensive reports, and device management tools.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">.NET</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Leaflet Maps</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Flutter</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">jQuery</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-violet-600/30 via-indigo-600/20 to-purple-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-violet-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Blockchain IoT Alert System</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">POC for blockchain-based IoT sensor monitoring — flame, temperature, and smoke sensors feeding real-time data via Node-RED into a local Ganache blockchain for immutable logging.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">Ganache</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">Node-RED</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-500/10 text-slate-300 border border-slate-500/20">IoT Sensors</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-amber-600/30 via-yellow-600/20 to-orange-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-amber-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Satellite Telecom BSS/OSS</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Enterprise BSS/OSS platform for satellite internet providers — NMS management, bandwidth allocation, channel control, NX Allot integration, and ERP monitoring for multi-region operations.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">SQL Server</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">NX Allot</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">NMS</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="500">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-pink-600/30 via-rose-600/20 to-red-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l9 4.5V12l-9 4.5L3 12V7.5L12 3z"/><path d="M12 12v9"/><path d="M3 12l9 4.5"/><path d="M21 12l-9 4.5"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-pink-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Legal Data Intelligence</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Distributed web scraping platform for legal data acquisition — ML-powered document classification, entity extraction, custom OCR with PyTesseract, and microservices architecture.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Python</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20">ML/NLP</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Scrapy</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://unicourt.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="0">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-cyan-600/30 via-blue-600/20 to-indigo-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-cyan-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">On-Demand Expert Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Service marketplace connecting users with verified professionals for on-demand consultations, bookings, and expert services across multiple domains.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">FastAPI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">PostgreSQL</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://ondemandexpert.ae" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-amber-600/30 via-orange-600/20 to-yellow-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12c0-3.19 1.5-6.03 3.84-7.86"/><path d="M12 2c1.5 2 3 5 3 10"/><path d="M12 2c-1.5 2-3 5-3 10"/><circle cx="12" cy="8" r="2"/><path d="M7 19l2-3M17 19l-2-3"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM12 8v8M8 12h8"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-amber-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Equestrian Training Center</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Horse training management platform for Emirates Equestrian Centre — scheduling, trainer management, course tracking, and membership portal.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">FastAPI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">PostgreSQL</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://beta.emiratesequestriancentre.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-indigo-600/30 via-blue-600/20 to-violet-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-indigo-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">University Portal</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Comprehensive university management system for Sharjah University — student portal, course registration, academic records, and campus services integration.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">PHP</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">MySQL</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20">React Native</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://eusu.456testsite.com/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-teal-600/30 via-emerald-600/20 to-cyan-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12C2 6.48 6.48 2 12 2c2.76 0 5.26 1.12 7.07 2.93"/><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4c1.1 0 2.1-.45 2.83-1.17"/><path d="M20 4v4h-4"/><circle cx="12" cy="12" r="1"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-teal-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Fish Aquarium & Harvesting</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Aquarium and fish harvesting management system — inventory tracking, water quality monitoring, feeding schedules, harvest planning, and production analytics.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">FastAPI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">PostgreSQL</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 11 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="0">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-green-600/30 via-emerald-600/20 to-lime-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-green-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Gym Membership & Booking</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Gym membership management platform with class scheduling, trainer booking, member check-in, subscription management, and payment processing.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Node.js</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">MongoDB</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 12 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-rose-600/30 via-pink-600/20 to-fuchsia-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-rose-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Tailoring Management App</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Web-based tailoring order management system — receive orders online, capture precise measurements, and export PDF labels with correct sizing for tailors.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Node.js</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">PDF Export</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 13 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-fuchsia-600/30 via-purple-600/20 to-pink-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V12h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4v2a2 2 0 0 1-2 2h0a2 2 0 0 1-2-2v-2H6a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4V9.5A4 4 0 0 1 8 6a4 4 0 0 1 4-4z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-fuchsia-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">AI Content for Influencers</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">AI-powered content analysis and generation tool for Instagram influencers — analyzes engagement patterns, generates captions, hashtags, and content strategy recommendations.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-fuchsia-500/10 text-fuchsia-400 border border-fuchsia-500/20">OpenAI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Python</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Next.js</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 14 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-sky-600/30 via-blue-600/20 to-indigo-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-sky-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">AI Website Generator</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">AI-powered website generation platform — businesses describe their needs and the system generates complete, responsive websites with content, images, and SEO optimization.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">Claude API</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Node.js</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 15 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="0">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-blue-600/30 via-indigo-600/20 to-slate-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-blue-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">CRM Application</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Customer relationship management platform with lead tracking, sales pipeline, contact management, task automation, and reporting dashboards.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">FastAPI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">PostgreSQL</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 16 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-yellow-600/30 via-amber-600/20 to-orange-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-yellow-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Email Marketing Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Email marketing automation tool with campaign builder, audience segmentation, template designer, delivery analytics, and A/B testing capabilities.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">FastAPI</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">PostgreSQL</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 17 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-emerald-600/30 via-green-600/20 to-teal-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-emerald-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Talent Recruitment Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">European talent acquisition platform connecting employers with skilled professionals — job posting, candidate matching, application tracking, and interview scheduling.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">.NET</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Angular</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">MySQL</span>
+            </div>
+            <div class="flex gap-4">
+              <a href="https://easytalent.eu/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-400 hover:text-accent-blue transition-colors no-underline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Visit Website
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 18 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-orange-600/30 via-red-600/20 to-amber-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-orange-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Chef Hiring Platform</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Marketplace connecting restaurants and households with professional chefs — chef profiles, cuisine specialization, booking system, ratings, and secure payments.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">React</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Django</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">React Native</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 19 -->
+        <div class="project-card-enhanced glass-card rounded-2xl overflow-hidden animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <div class="project-preview h-36 sm:h-40 bg-gradient-to-br from-slate-600/30 via-gray-600/20 to-zinc-500/30 relative overflow-hidden">
+            <div class="project-shimmer"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 opacity-30">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+          </div>
+          <div class="border-t-2 border-slate-500"></div>
+          <div class="p-6 sm:p-7">
+            <h3 class="text-lg font-bold mb-2">Employee Attendance Tracker</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-5">Employee attendance and time tracking application with clock-in/out, leave management, shift scheduling, GPS-based check-in, and attendance reports.</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20">Django</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Flutter</span>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">MySQL</span>
+            </div>
+            <div class="flex gap-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Internal Project
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Let's Connect</h2>
+      <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-start">
+        <div class="animate-on-scroll" data-animation="fade-right">
+          <div class="contact-form-wrapper glass-card rounded-2xl p-6 sm:p-8">
+            <form id="contactForm" class="flex flex-col gap-5">
+              <div>
+                <label for="name" class="block text-sm font-semibold text-slate-400 mb-2">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required class="w-full px-4 py-3.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-white text-sm font-sans outline-none transition-all duration-300 focus:border-accent-blue focus:shadow-[0_0_0_3px_rgba(0,212,255,0.1)] placeholder:text-slate-600">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-semibold text-slate-400 mb-2">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required class="w-full px-4 py-3.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-white text-sm font-sans outline-none transition-all duration-300 focus:border-accent-blue focus:shadow-[0_0_0_3px_rgba(0,212,255,0.1)] placeholder:text-slate-600">
+              </div>
+              <div>
+                <label for="subject" class="block text-sm font-semibold text-slate-400 mb-2">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?" class="w-full px-4 py-3.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-white text-sm font-sans outline-none transition-all duration-300 focus:border-accent-blue focus:shadow-[0_0_0_3px_rgba(0,212,255,0.1)] placeholder:text-slate-600">
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-semibold text-slate-400 mb-2">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required class="w-full px-4 py-3.5 bg-white/[0.04] border border-white/[0.08] rounded-lg text-white text-sm font-sans outline-none transition-all duration-300 focus:border-accent-blue focus:shadow-[0_0_0_3px_rgba(0,212,255,0.1)] placeholder:text-slate-600 resize-y min-h-[120px]"></textarea>
+              </div>
+              <button type="submit" class="btn-send w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-semibold text-white border-none cursor-pointer transition-all duration-300">
+                <span>Send Message</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+            <div id="formSuccess" class="hidden text-center py-16 px-5">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2" class="mx-auto"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h3 class="text-xl font-bold mt-4 mb-2">Message Sent!</h3>
+              <p class="text-slate-400">Thanks for reaching out. I'll get back to you soon.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-7 animate-on-scroll" data-animation="fade-left">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold mb-0.5">Email</h4>
+              <a href="mailto:muhammedalthaf.althaf@gmail.com" class="text-sm text-slate-400 no-underline hover:text-accent-blue transition-colors">muhammedalthaf.althaf@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 rounded-xl bg-accent-blue/10 flex items-center justify-center text-accent-blue flex-shrink-0">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold mb-0.5">Location</h4>
+              <p class="text-sm text-slate-400">Kerala, India</p>
+            </div>
+          </div>
+          <div class="flex gap-3 mt-2">
+            <a href="https://linkedin.com/in/dev-muhammed-althaf" class="social-btn w-14 h-14 rounded-xl glass-card flex items-center justify-center text-slate-400 no-underline transition-all duration-300 hover:text-white hover:-translate-y-1" aria-label="LinkedIn">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com/dev-althaf" class="social-btn w-14 h-14 rounded-xl glass-card flex items-center justify-center text-slate-400 no-underline transition-all duration-300 hover:text-white hover:-translate-y-1" aria-label="GitHub">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="mailto:muhammedalthaf.althaf@gmail.com" class="social-btn w-14 h-14 rounded-xl glass-card flex items-center justify-center text-slate-400 no-underline transition-all duration-300 hover:text-white hover:-translate-y-1" aria-label="Email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="https://wa.me/917972646669" class="social-btn w-14 h-14 rounded-xl glass-card flex items-center justify-center text-slate-400 no-underline transition-all duration-300 hover:text-white hover:-translate-y-1" aria-label="WhatsApp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+          <div class="flex items-center gap-3 mt-2">
+            <div class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-sm text-slate-400">Available for freelance projects</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/[0.08] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 text-center">
+      <p class="text-sm text-slate-400 mb-1">&copy; 2026 Muhammed Althaf. All rights reserved.</p>
+      <p class="text-xs text-slate-600">Built with passion and code</p>
+    </div>
+    <button id="backToTop" class="back-to-top fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple border-none text-white cursor-pointer flex items-center justify-center opacity-0 invisible translate-y-5 transition-all duration-300 z-[999] shadow-[0_4px_20px_rgba(0,212,255,0.3)]" aria-label="Back to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
