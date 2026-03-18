@@ -533,3 +533,91 @@
     });
   });
 })();
+
+/* ============================================
+   Pouring Buckets Effect — Scroll Driven
+   ============================================ */
+(function initPouringEffect() {
+  var buckets = document.querySelectorAll('.tool-bucket');
+  if (!buckets.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var cards = entry.target.querySelectorAll('.pour-card');
+      if (entry.isIntersecting) {
+        // Pour cards with stagger
+        cards.forEach(function(card, i) {
+          setTimeout(function() {
+            card.classList.add('poured');
+          }, i * 60);
+        });
+      } else {
+        // Un-pour cards (reverse) with stagger
+        var arr = Array.from(cards);
+        arr.reverse().forEach(function(card, i) {
+          setTimeout(function() {
+            card.classList.remove('poured');
+          }, i * 30);
+        });
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  buckets.forEach(function(bucket) {
+    observer.observe(bucket);
+  });
+
+  // Tab filtering — show/hide buckets
+  var tabs = document.querySelectorAll('#tools .tools-tab');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var filter = tab.getAttribute('data-filter');
+
+      buckets.forEach(function(bucket) {
+        var bucketCat = bucket.getAttribute('data-bucket');
+        if (filter === 'all' || bucketCat === filter) {
+          bucket.classList.remove('bucket-hidden');
+          // Re-trigger pour after showing
+          var cards = bucket.querySelectorAll('.pour-card');
+          cards.forEach(function(c) { c.classList.remove('poured'); });
+          setTimeout(function() {
+            cards.forEach(function(c, i) {
+              setTimeout(function() { c.classList.add('poured'); }, i * 60);
+            });
+          }, 100);
+        } else {
+          // Un-pour then hide
+          var cards = bucket.querySelectorAll('.pour-card');
+          cards.forEach(function(c) { c.classList.remove('poured'); });
+          setTimeout(function() { bucket.classList.add('bucket-hidden'); }, 300);
+        }
+      });
+    });
+  });
+
+  // Brand color hover glow
+  document.querySelectorAll('.pour-card').forEach(function(card) {
+    var brandColor = card.getAttribute('data-brand-color');
+    card.addEventListener('mouseenter', function() {
+      card.style.borderColor = brandColor;
+      card.style.boxShadow = '0 8px 25px ' + brandColor + '20, 0 0 15px ' + brandColor + '15';
+      var icon = card.querySelector('.tool-card-icon');
+      var name = card.querySelector('.tool-card-name');
+      if (icon) icon.style.color = brandColor;
+      if (name) name.style.color = '#fff';
+    });
+    card.addEventListener('mouseleave', function() {
+      card.style.borderColor = '';
+      card.style.boxShadow = '';
+      var icon = card.querySelector('.tool-card-icon');
+      var name = card.querySelector('.tool-card-name');
+      if (icon) icon.style.color = '';
+      if (name) name.style.color = '';
+    });
+  });
+})();
