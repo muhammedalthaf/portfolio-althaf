@@ -75,16 +75,84 @@ html {
 }
 
 /* ============================================
-   Custom Cursor Glow
+   Custom Cursor
    ============================================ */
+
+/* Hide default cursor on desktop */
+@media (min-width: 1024px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+  input, textarea, select, [contenteditable] {
+    cursor: text !important;
+  }
+}
+
+/* Cursor dot (small inner circle) */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: screen;
+  display: none;
+}
+
+/* Cursor ring (outer circle) */
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 212, 255, 0.5);
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .cursor-dot, .cursor-ring {
+    display: block;
+  }
+}
+
+/* Hover state — ring grows, dot shrinks */
+.cursor-ring.cursor-hover {
+  width: 50px;
+  height: 50px;
+  border-color: rgba(124, 58, 237, 0.6);
+  background: rgba(0, 212, 255, 0.04);
+}
+
+.cursor-dot.cursor-hover {
+  width: 4px;
+  height: 4px;
+  background: var(--accent-purple);
+}
+
+/* Click state — ring shrinks */
+.cursor-ring.cursor-click {
+  width: 28px;
+  height: 28px;
+  border-color: var(--accent-blue);
+}
+
+/* Ambient glow (keep existing) */
 .cursor-glow {
   position: fixed;
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 9998;
+  z-index: 9997;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s ease;
   opacity: 0;

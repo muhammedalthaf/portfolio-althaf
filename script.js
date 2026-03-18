@@ -151,9 +151,11 @@
 
   var roles = [
     'Full Stack Developer',
-    'AI Engineer',
-    'System Architect',
-    'Mobile Developer'
+    'AI & ML Engineer',
+    'Cloud & DevOps Architect',
+    'Mobile App Developer',
+    'Project Manager',
+    'IoT & Blockchain Developer'
   ];
 
   var roleIndex = 0;
@@ -409,33 +411,94 @@
 })();
 
 /* ============================================
-   Custom Cursor Glow
+   Custom Cursor — Dot + Ring + Glow
    ============================================ */
-(function initCursorGlow() {
-  var cursor = document.getElementById('cursorGlow');
-  if (!cursor) return;
+(function initCustomCursor() {
+  var dot = document.getElementById('cursorDot');
+  var ring = document.getElementById('cursorRing');
+  var glow = document.getElementById('cursorGlow');
+  if (!dot || !ring) return;
 
-  var posX = 0, posY = 0;
   var mouseX = 0, mouseY = 0;
+  var ringX = 0, ringY = 0;
+  var glowX = 0, glowY = 0;
+  var visible = false;
 
   document.addEventListener('mousemove', function (e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursor.classList.add('visible');
+    // Dot follows instantly
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+    if (!visible) {
+      visible = true;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+      if (glow) glow.classList.add('visible');
+    }
   });
 
   document.addEventListener('mouseleave', function () {
-    cursor.classList.remove('visible');
+    visible = false;
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+    if (glow) glow.classList.remove('visible');
   });
 
+  // Hover detection — links, buttons, interactive elements
+  var hoverTargets = 'a, button, .pour-card, .ai-pill, .skill-tag, .tools-tab, .bento-card, .project-card-enhanced, .ai-capability-card, .ai-badge-pill, .bento-social-icon, .social-btn, [role="button"]';
+
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.add('cursor-hover');
+      ring.classList.add('cursor-hover');
+    }
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.remove('cursor-hover');
+      ring.classList.remove('cursor-hover');
+    }
+  });
+
+  // Click animation
+  document.addEventListener('mousedown', function () {
+    ring.classList.add('cursor-click');
+  });
+  document.addEventListener('mouseup', function () {
+    ring.classList.remove('cursor-click');
+  });
+
+  // Hide cursor on text inputs
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.matches('input, textarea, select, [contenteditable]')) {
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.matches('input, textarea, select, [contenteditable]') && visible) {
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
+    }
+  });
+
+  // Ring and glow follow with smooth lerp
   function updateCursor() {
-    posX += (mouseX - posX) * 0.1;
-    posY += (mouseY - posY) * 0.1;
-    cursor.style.left = posX + 'px';
-    cursor.style.top = posY + 'px';
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+
+    if (glow) {
+      glowX += (mouseX - glowX) * 0.08;
+      glowY += (mouseY - glowY) * 0.08;
+      glow.style.left = glowX + 'px';
+      glow.style.top = glowY + 'px';
+    }
     requestAnimationFrame(updateCursor);
   }
-
   updateCursor();
 })();
 
