@@ -780,7 +780,7 @@ html {
 
 .animate-on-scroll.in-view {
   opacity: 1;
-  transform: translateY(0) translateX(0) scale(1);
+  transform: translateY(var(--px-shift, 0px)) translateX(0) scale(1);
 }
 
 /* ============================================

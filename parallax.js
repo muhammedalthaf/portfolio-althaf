@@ -760,4 +760,39 @@
       .to('.ai-graph-lines path', { strokeDashoffset: 0, stagger: 0.08, ease: 'none' }, 0)
       .from('.ai-graph-nodes circle', { scale: 0, transformOrigin: '50% 50%', stagger: 0.05, ease: 'none' }, 0);
   }
+
+  // Experience timeline lines draw with scroll.
+  gsap.fromTo('.timeline-line',
+    { scaleY: 0, xPercent: -50 },
+    { scaleY: 1, xPercent: -50, transformOrigin: 'top center', ease: 'none',
+      scrollTrigger: { trigger: '.timeline', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+  gsap.fromTo('.timeline-line-mobile',
+    { scaleY: 0 },
+    { scaleY: 1, transformOrigin: 'top center', ease: 'none',
+      scrollTrigger: { trigger: '.timeline', start: 'top 75%', end: 'bottom 55%', scrub: true } });
+
+  // Grid cards: alternating column drift for subtle 3D depth.
+  if (isDesktop) {
+    ['#skills .grid', '#projects .grid', '.bento-grid'].forEach(function (sel) {
+      var grid = document.querySelector(sel);
+      if (!grid) return;
+      Array.prototype.forEach.call(grid.children, function (card, i) {
+        var amp = i % 2 === 0 ? 16 : -16;
+        gsap.fromTo(card, { '--px-shift': amp + 'px' }, {
+          '--px-shift': (-amp) + 'px',
+          ease: 'none',
+          scrollTrigger: { trigger: grid, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+      });
+    });
+
+    // Section titles drift slightly slower than their content.
+    gsap.utils.toArray('.section-title').forEach(function (title) {
+      gsap.fromTo(title, { '--px-shift': '-14px' }, {
+        '--px-shift': '14px',
+        ease: 'none',
+        scrollTrigger: { trigger: title.closest('section'), start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  }
 })();
