@@ -1797,3 +1797,24 @@ section {
 @media (max-width: 1023px) {
   .px-item.px-glass { display: none; }
 }
+
+/* AI section pinned agent-graph backdrop */
+.ai-graph-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 92%);
+  color: #7c3aed;
+  opacity: 0.22;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.ai-graph-lines path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+@media (max-width: 1023px) { .ai-graph-bg { display: none; } }
+@media (prefers-reduced-motion: reduce) { .ai-graph-bg { display: none; } }

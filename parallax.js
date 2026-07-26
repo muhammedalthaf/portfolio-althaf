@@ -743,4 +743,21 @@
       .to('#hero .px-item[data-px="mid"]', { yPercent: -60, ease: 'none' }, 0)
       .to('#heroScrollHint', { opacity: 0, ease: 'none' }, 0);
   }
+
+  // Pinned moment 2: AI header holds while the agent graph draws itself.
+  if (isDesktop) {
+    var aiTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.ai-pin-wrap',
+        start: 'center center',
+        end: '+=55%',
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+      }
+    });
+    aiTl
+      .to('.ai-graph-lines path', { strokeDashoffset: 0, stagger: 0.08, ease: 'none' }, 0)
+      .from('.ai-graph-nodes circle', { scale: 0, transformOrigin: '50% 50%', stagger: 0.05, ease: 'none' }, 0);
+  }
 })();
