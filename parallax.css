@@ -1720,3 +1720,43 @@ section {
 .tool-bucket.bucket-hidden {
   display: none;
 }
+
+/* ============================================
+   Parallax Decor System (developer universe)
+   ============================================ */
+.px-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.px-item {
+  position: absolute;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.px-item svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.px-item[data-px="far"]  { opacity: 0.07; filter: blur(2px); }
+.px-item[data-px="mid"]  { opacity: 0.20; }
+.px-item[data-px="near"] { opacity: 0.45; }
+
+.px-glow { filter: drop-shadow(0 0 6px currentColor); }
+.px-item[data-px="far"].px-glow { filter: blur(2px) drop-shadow(0 0 10px currentColor); }
+
+@media (max-width: 1023px) {
+  .px-item[data-px="far"],
+  .px-item[data-mobile-hide] { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-item { opacity: 0.08 !important; }
+}

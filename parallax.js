@@ -691,3 +691,37 @@
     });
   });
 })();
+
+/* ============================================
+   Parallax Engine — GSAP ScrollTrigger
+   ============================================ */
+(function initParallax() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  var isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+  var LAG = { far: 200, mid: 120, near: 50, front: -160 };
+  var dist = isDesktop ? 1 : 0.5;
+
+  // Depth engine: every .px-item drifts vertically at its depth's speed.
+  // Negative-to-positive y = lags behind scroll (background feel);
+  // front items get the inverse (lead the scroll).
+  gsap.utils.toArray('.px-item').forEach(function (el) {
+    var depth = el.getAttribute('data-px') || 'mid';
+    var d = (LAG[depth] || 0) * dist;
+    var section = el.closest('section');
+    if (!section) return;
+    gsap.fromTo(el, { y: -d }, {
+      y: d,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  });
+})();
