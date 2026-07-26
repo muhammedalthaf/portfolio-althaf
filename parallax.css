@@ -1760,3 +1760,40 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .px-item { opacity: 0.08 !important; }
 }
+
+/* Foreground glass mini-cards */
+.px-glass {
+  background: rgba(18, 18, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 212, 255, 0.08);
+  padding: 14px 16px;
+  font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+  font-size: 0.7rem;
+  line-height: 1.7;
+  z-index: 20;
+  filter: none; /* glass cards don't inherit .px-glow blur/glow */
+}
+
+.px-glass .px-glass-dots { display: flex; gap: 5px; margin-bottom: 8px; }
+.px-glass .px-glass-dots span { width: 8px; height: 8px; border-radius: 50%; }
+
+.px-glass-bars { display: flex; align-items: flex-end; gap: 6px; height: 44px; margin-top: 6px; }
+.px-glass-bars span { width: 10px; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, #00d4ff, #7c3aed); }
+
+.px-glass .px-pulse {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #10b981; margin-right: 6px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@media (max-width: 1023px) {
+  .px-item.px-glass { display: none; }
+}
