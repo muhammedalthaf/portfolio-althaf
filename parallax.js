@@ -724,4 +724,23 @@
       }
     });
   });
+
+  // Pinned moment 1: hero exit — avatar lifts away, foreground flies past.
+  if (isDesktop) {
+    var heroTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'top top',
+        end: '+=70%',
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+      }
+    });
+    heroTl
+      .to('.hero-character-glow', { yPercent: -25, opacity: 0, ease: 'none' }, 0)
+      .to('#hero .px-item[data-px="near"], #hero .px-item[data-px="front"]', { yPercent: -120, ease: 'none' }, 0)
+      .to('#hero .px-item[data-px="mid"]', { yPercent: -60, ease: 'none' }, 0)
+      .to('#heroScrollHint', { opacity: 0, ease: 'none' }, 0);
+  }
 })();
