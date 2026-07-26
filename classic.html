@@ -22,7 +22,7 @@
       }
     }
   </script>
-  <link rel="stylesheet" href="parallax.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
 
@@ -64,30 +64,9 @@
   <section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden">
     <canvas id="particleCanvas" class="absolute inset-0 w-full h-full z-0"></canvas>
     <!-- Floating geometric shapes -->
-    <div class="px-item" data-px="mid" style="top: 15%; left: 8%; width: 120px;"><div class="geo-shape geo-shape-1" style="position: static; width: 100%; height: 120px;"></div></div>
-    <div class="px-item" data-px="near" style="top: 20%; right: 10%; width: 80px;"><div class="geo-shape geo-shape-2" style="position: static; width: 100%; height: 80px;"></div></div>
-    <div class="px-item" data-px="far" style="bottom: 20%; left: 15%; width: 60px;"><div class="geo-shape geo-shape-3" style="position: static; width: 100%; height: 60px;"></div></div>
-    <!-- Parallax decor -->
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 8%; right: -6%; width: 480px; color: #00d4ff;">
-        <svg viewBox="0 0 200 140" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="20" width="120" height="75" rx="6"/><rect x="48" y="28" width="104" height="59" rx="3"/><path d="M25 110 L40 95 h120 l15 15 z"/><path d="M85 103 h30"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="top: 18%; left: 3%; width: 105px; color: #7c3aed;" data-mobile-hide>
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 25 L18 50 L40 75"/><path d="M80 25 L102 50 L80 75"/><path d="M68 18 L52 82"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="bottom: 22%; right: 4%; width: 180px; color: #00d4ff;">
-        <svg viewBox="0 0 160 110" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="150" height="100" rx="8"/><circle cx="20" cy="18" r="3"/><circle cx="32" cy="18" r="3"/><circle cx="44" cy="18" r="3"/><path d="M5 30 h150"/><path d="M18 48 l10 8 -10 8"/><path d="M36 64 h24"/><path d="M18 82 h40"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="bottom: 12%; left: 6%; width: 90px; color: #ec4899;" data-mobile-hide>
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M45 15 c-12 0 -12 10 -12 17 c0 8 0 13 -12 18 c12 5 12 10 12 18 c0 7 0 17 12 17"/><path d="M75 15 c12 0 12 10 12 17 c0 8 0 13 12 18 c-12 5 -12 10 -12 18 c0 7 0 17 -12 17"/></svg>
-      </div>
-      <div class="px-item px-glass" data-px="front" style="bottom: 0.5%; left: 2%; width: 200px; color: #e2e8f0;">
-        <div class="px-glass-dots"><span style="background:#ff5f57"></span><span style="background:#ffbd2e"></span><span style="background:#28c840"></span></div>
-        <div><span style="color:#00d4ff">$</span> npm run deploy</div>
-        <div style="color:#10b981">&#10004; build passed</div>
-        <div style="color:#10b981">&#10004; deployed in 3.2s</div>
-      </div>
-    </div>
+    <div class="geo-shape geo-shape-1"></div>
+    <div class="geo-shape geo-shape-2"></div>
+    <div class="geo-shape geo-shape-3"></div>
     <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
       <div class="flex flex-col lg:flex-row items-center justify-center gap-2 sm:gap-4 lg:gap-12 min-h-[100svh] py-20 lg:py-0">
         <!-- Left: Text Content -->
@@ -113,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div id="heroScrollHint" class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center z-10">
+    <div class="absolute bottom-6 md:bottom-8 left-0 right-0 flex justify-center z-10">
       <div class="text-center text-slate-500 text-xs tracking-widest">
         <span>Scroll Down</span>
         <div class="mt-1 flex justify-center animate-scroll-bounce">
@@ -126,17 +105,6 @@
   <!-- About Section -->
   <section id="about" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
     <div class="about-floating-shapes"></div>
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="bottom: 5%; left: -5%; width: 420px; color: #7c3aed;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M45 15 c-12 0 -12 10 -12 17 c0 8 0 13 -12 18 c12 5 12 10 12 18 c0 7 0 17 12 17"/><path d="M75 15 c12 0 12 10 12 17 c0 8 0 13 12 18 c-12 5 -12 10 -12 18 c0 7 0 17 -12 17"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="top: 10%; right: 2%; width: 150px; color: #00d4ff;" data-mobile-hide>
-        <svg viewBox="0 0 100 120" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="20" r="9"/><circle cx="30" cy="100" r="9"/><circle cx="72" cy="55" r="9"/><path d="M30 29 V91"/><path d="M30 40 C30 55 60 42 66 48"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="top: 45%; left: 0.3%; width: 80px; color: #00d4ff;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 25 L18 50 L40 75"/><path d="M80 25 L102 50 L80 75"/><path d="M68 18 L52 82"/></svg>
-      </div>
-    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">About Me</h2>
       <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
@@ -265,24 +233,6 @@
   <!-- Skills Section - Circular Progress Rings -->
   <section id="skills" class="py-20 sm:py-24 lg:py-32 relative">
     <div class="circuit-bg"></div>
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 12%; left: -5%; width: 400px; color: #00d4ff;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 90 h100"/><path d="M10 90 V10"/><rect x="25" y="55" width="12" height="35"/><rect x="45" y="40" width="12" height="50"/><rect x="65" y="60" width="12" height="30"/><rect x="85" y="25" width="12" height="65"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="top: 4%; right: -3%; width: 130px; color: #ec4899;" data-mobile-hide>
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 90 h100"/><path d="M10 90 V10"/><path d="M18 80 L44 55 L70 65 L106 25"/><circle cx="44" cy="55" r="3"/><circle cx="70" cy="65" r="3"/><circle cx="106" cy="25" r="3"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="bottom: 10%; right: 5%; width: 85px; color: #7c3aed;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 25 L18 50 L40 75"/><path d="M80 25 L102 50 L80 75"/><path d="M68 18 L52 82"/></svg>
-      </div>
-      <div class="px-item px-glass" data-px="front" style="top: 3%; right: 1%; width: 170px; color: #e2e8f0;">
-        <div style="color:#94a3b8">performance</div>
-        <div class="px-glass-bars">
-          <span style="height:40%"></span><span style="height:65%"></span><span style="height:50%"></span><span style="height:85%"></span><span style="height:100%"></span>
-        </div>
-        <div style="color:#10b981; margin-top:6px">&#9650; +32% this sprint</div>
-      </div>
-    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Technical Skills</h2>
       <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
@@ -422,46 +372,12 @@
   <section id="ai-skills" class="py-20 sm:py-24 lg:py-32 relative">
     <!-- Circuit board background -->
     <div class="circuit-bg"></div>
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 30%; right: -6%; width: 460px; color: #7c3aed;">
-        <svg viewBox="0 0 180 120" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="60" r="10"/><circle cx="90" cy="25" r="10"/><circle cx="90" cy="95" r="10"/><circle cx="150" cy="60" r="10"/><path d="M39 55 L81 30"/><path d="M39 65 L81 90"/><path d="M99 30 L141 55"/><path d="M99 90 L141 65"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="bottom: 15%; left: 2%; width: 190px; color: #00d4ff;" data-mobile-hide>
-        <svg viewBox="0 0 200 90" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="30" width="44" height="30" rx="6"/><rect x="78" y="5" width="44" height="30" rx="6"/><rect x="78" y="55" width="44" height="30" rx="6"/><rect x="151" y="30" width="44" height="30" rx="6"/><path d="M49 40 L78 22"/><path d="M49 50 L78 68"/><path d="M122 22 L151 40"/><path d="M122 68 L151 50"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="top: 12%; left: 5%; width: 75px; color: #ec4899;">
-        <svg viewBox="0 0 100 120" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="20" r="9"/><circle cx="30" cy="100" r="9"/><circle cx="72" cy="55" r="9"/><path d="M30 29 V91"/><path d="M30 40 C30 55 60 42 66 48"/></svg>
-      </div>
-    </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
-      <div class="ai-pin-wrap relative">
-        <svg class="ai-graph-bg" viewBox="0 0 900 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <g class="ai-graph-lines">
-            <path pathLength="1" d="M120 150 L300 70"/>
-            <path pathLength="1" d="M120 150 L300 230"/>
-            <path pathLength="1" d="M300 70 L480 150"/>
-            <path pathLength="1" d="M300 230 L480 150"/>
-            <path pathLength="1" d="M480 150 L640 60"/>
-            <path pathLength="1" d="M480 150 L640 240"/>
-            <path pathLength="1" d="M640 60 L790 150"/>
-            <path pathLength="1" d="M640 240 L790 150"/>
-          </g>
-          <g class="ai-graph-nodes">
-            <circle cx="120" cy="150" r="14"/>
-            <circle cx="300" cy="70" r="14"/>
-            <circle cx="300" cy="230" r="14"/>
-            <circle cx="480" cy="150" r="14"/>
-            <circle cx="640" cy="60" r="14"/>
-            <circle cx="640" cy="240" r="14"/>
-            <circle cx="790" cy="150" r="14"/>
-          </g>
-        </svg>
-        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">AI & Intelligence</h2>
-        <div class="section-title-bar mx-auto mb-4"></div>
-        <p class="text-slate-400 text-sm sm:text-base text-center max-w-2xl mx-auto mb-12 sm:mb-16 animate-on-scroll" data-animation="fade-up" data-delay="100">
-          Architecting the future with advanced language models, autonomous agents, and intelligent data systems.
-        </p>
-      </div>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">AI & Intelligence</h2>
+      <div class="section-title-bar mx-auto mb-4"></div>
+      <p class="text-slate-400 text-sm sm:text-base text-center max-w-2xl mx-auto mb-12 sm:mb-16 animate-on-scroll" data-animation="fade-up" data-delay="100">
+        Architecting the future with advanced language models, autonomous agents, and intelligent data systems.
+      </p>
 
       <!-- 3 Capability Bento Cards -->
       <div class="space-y-6">
@@ -692,15 +608,7 @@
 
   <!-- Tools & Technologies Section -->
   <section id="tools" class="py-20 sm:py-24 lg:py-32 relative overflow-hidden">
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 15%; left: -4%; width: 380px; color: #00d4ff;">
-        <svg viewBox="0 0 120 130" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="10" width="90" height="32" rx="6"/><rect x="15" y="49" width="90" height="32" rx="6"/><rect x="15" y="88" width="90" height="32" rx="6"/><circle cx="30" cy="26" r="3"/><circle cx="30" cy="65" r="3"/><circle cx="30" cy="104" r="3"/><path d="M60 26 h30"/><path d="M60 65 h30"/><path d="M60 104 h30"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="bottom: 20%; right: 2%; width: 170px; color: #7c3aed;" data-mobile-hide>
-        <svg viewBox="0 0 160 110" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="150" height="100" rx="8"/><circle cx="20" cy="18" r="3"/><circle cx="32" cy="18" r="3"/><circle cx="44" cy="18" r="3"/><path d="M5 30 h150"/><path d="M18 48 l10 8 -10 8"/><path d="M36 64 h24"/><path d="M18 82 h40"/></svg>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Tools & Technologies</h2>
       <div class="section-title-bar mx-auto mb-4"></div>
       <p class="text-slate-400 text-sm text-center max-w-2xl mx-auto mb-12">A curated collection of languages, frameworks, and tools I use to bring digital ideas to life.</p>
@@ -1369,23 +1277,7 @@
 
   <!-- Experience Section -->
   <section id="experience" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 20%; right: -5%; width: 440px; color: #00d4ff;">
-        <svg viewBox="0 0 200 90" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="30" width="44" height="30" rx="6"/><rect x="78" y="5" width="44" height="30" rx="6"/><rect x="78" y="55" width="44" height="30" rx="6"/><rect x="151" y="30" width="44" height="30" rx="6"/><path d="M49 40 L78 22"/><path d="M49 50 L78 68"/><path d="M122 22 L151 40"/><path d="M122 68 L151 50"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="top: 45%; left: -2%; width: 110px; color: #ec4899;" data-mobile-hide>
-        <svg viewBox="0 0 100 120" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="20" r="9"/><circle cx="30" cy="100" r="9"/><circle cx="72" cy="55" r="9"/><path d="M30 29 V91"/><path d="M30 40 C30 55 60 42 66 48"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="bottom: 8%; left: 5%; width: 80px; color: #00d4ff;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M45 15 c-12 0 -12 10 -12 17 c0 8 0 13 -12 18 c12 5 12 10 12 18 c0 7 0 17 12 17"/><path d="M75 15 c12 0 12 10 12 17 c0 8 0 13 12 18 c-12 5 -12 10 -12 18 c0 7 0 17 -12 17"/></svg>
-      </div>
-      <div class="px-item px-glass" data-px="front" style="top: 16%; right: 1%; width: 185px; color: #e2e8f0;">
-        <div><span class="px-pulse"></span>Agent running</div>
-        <div style="color:#94a3b8">task: refactor api</div>
-        <div style="color:#00d4ff">tools: 4 active</div>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Professional Journey</h2>
       <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
       <div class="timeline relative mx-auto py-5">
@@ -1521,18 +1413,7 @@
 
   <!-- Projects Section -->
   <section id="projects" class="py-20 sm:py-24 lg:py-32 relative">
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="far" style="top: 25%; left: -6%; width: 460px; color: #7c3aed;">
-        <svg viewBox="0 0 200 140" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="20" width="120" height="75" rx="6"/><rect x="48" y="28" width="104" height="59" rx="3"/><path d="M25 110 L40 95 h120 l15 15 z"/><path d="M85 103 h30"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="mid" style="top: 10%; right: 2%; width: 165px; color: #00d4ff;" data-mobile-hide>
-        <svg viewBox="0 0 160 110" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="150" height="100" rx="8"/><circle cx="20" cy="18" r="3"/><circle cx="32" cy="18" r="3"/><circle cx="44" cy="18" r="3"/><path d="M5 30 h150"/><path d="M18 48 l10 8 -10 8"/><path d="M36 64 h24"/><path d="M18 82 h40"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="bottom: 12%; right: 4%; width: 90px; color: #ec4899;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 90 h100"/><path d="M10 90 V10"/><path d="M18 80 L44 55 L70 65 L106 25"/><circle cx="44" cy="55" r="3"/><circle cx="70" cy="65" r="3"/><circle cx="106" cy="25" r="3"/></svg>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Featured Projects</h2>
       <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -2070,15 +1951,7 @@
 
   <!-- Contact Section -->
   <section id="contact" class="py-20 sm:py-24 lg:py-32 relative bg-dark-800">
-    <div class="px-decor" aria-hidden="true">
-      <div class="px-item px-glow" data-px="mid" style="top: 15%; right: 2%; width: 160px; color: #00d4ff;" data-mobile-hide>
-        <svg viewBox="0 0 180 120" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="60" r="10"/><circle cx="90" cy="25" r="10"/><circle cx="90" cy="95" r="10"/><circle cx="150" cy="60" r="10"/><path d="M39 55 L81 30"/><path d="M39 65 L81 90"/><path d="M99 30 L141 55"/><path d="M99 90 L141 65"/></svg>
-      </div>
-      <div class="px-item px-glow" data-px="near" style="bottom: 15%; left: 3%; width: 80px; color: #7c3aed;">
-        <svg viewBox="0 0 120 100" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 25 L18 50 L40 75"/><path d="M80 25 L102 50 L80 75"/><path d="M68 18 L52 82"/></svg>
-      </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32">
       <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 animate-on-scroll" data-animation="fade-up">Let's Connect</h2>
       <div class="section-title-bar mx-auto mb-12 sm:mb-16"></div>
       <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-start">
@@ -2166,8 +2039,6 @@
     </button>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="parallax.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
