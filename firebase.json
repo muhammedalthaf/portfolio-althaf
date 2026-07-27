@@ -6,10 +6,13 @@
       "**/.*",
       "**/node_modules/**",
       "Muhamed_Althaf_Resume_Full.pdf",
-      "**/*.docx",
+      "/*.docx",
       "Muhammed Althaf.pdf",
+      "Muhammed Althaf Resume.pdf",
       "scripts/**",
-      "docs/**"
+      "docs/**",
+      "image-prompts.md",
+      "images/*.png"
     ],
     "headers": [
       {

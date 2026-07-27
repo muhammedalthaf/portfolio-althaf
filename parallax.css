@@ -15,7 +15,10 @@
    Base & Reset Overrides
    ============================================ */
 html {
-  scroll-behavior: smooth;
+  /* Native smooth scrolling is intentionally OFF: it animates the browser's
+     scroll restoration after reload, which fights ScrollTrigger's pins.
+     Anchor links and back-to-top animate via JS (scrollIntoView/scrollTo). */
+  scroll-behavior: auto;
   scroll-padding-top: 80px;
 }
 
@@ -1818,3 +1821,375 @@ section {
 
 @media (max-width: 1023px) { .ai-graph-bg { display: none; } }
 @media (prefers-reduced-motion: reduce) { .ai-graph-bg { display: none; } }
+
+/* ============================================
+   About — layered parallax scene
+   ============================================ */
+.about-scene {
+  position: relative;
+  height: clamp(340px, 58vh, 620px);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #06060a;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 212, 255, 0.05);
+}
+
+.about-layer {
+  position: absolute;
+  object-fit: cover;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* full-bleed layers carry overscan so parallax travel never shows edges */
+.about-layer-bg  { left: -6%; top: -8%;  width: 112%; height: 116%; }
+.about-layer-mid { left: -6%; top: -10%; width: 112%; height: 120%; }
+.about-layer-fg  { left: -6%; top: -18%; width: 112%; height: 136%; }
+
+.about-layer-mid,
+.about-layer-fg { mix-blend-mode: screen; }
+
+/* portrait: bottom-center, feathered into the scene */
+.about-layer-portrait {
+  left: 0;
+  right: 0;
+  bottom: -6%;
+  top: auto;
+  margin-inline: auto;
+  height: 112%;
+  width: auto;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 60% 72% at 50% 40%, #000 52%, transparent 78%);
+          mask-image: radial-gradient(ellipse 60% 72% at 50% 40%, #000 52%, transparent 78%);
+}
+
+.about-scene-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(6, 6, 10, 0.7) 100%),
+    linear-gradient(to top, rgba(18, 18, 26, 0.55), transparent 28%);
+}
+
+@media (max-width: 767px) {
+  .about-scene { height: clamp(260px, 44vh, 420px); border-radius: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-layer { will-change: auto; }
+}
+
+/* ============================================
+   About — full holographic section
+   ============================================ */
+.about-scene-full {
+  height: auto;
+  min-height: 0;
+  margin-bottom: 2rem;
+}
+
+/* Mobile-first: visual block on top, holo panels flow below inside the frame */
+.about-scene-visual {
+  position: relative;
+  height: clamp(300px, 46vh, 460px);
+}
+
+.about-holo-panel,
+.about-holo-stats {
+  position: relative;
+  z-index: 3;
+  margin: 16px;
+}
+
+.about-holo-bio {
+  padding: 20px 22px;
+  background: rgba(8, 12, 24, 0.55);
+  border: 1px solid rgba(0, 212, 255, 0.22);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.07), inset 0 0 24px rgba(0, 212, 255, 0.04);
+}
+
+.about-holo-bio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
+}
+
+.about-holo-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00d4ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.about-holo-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.about-holo-stat {
+  position: relative;
+  text-align: center;
+  padding: 16px 10px 13px;
+  background: rgba(14, 8, 26, 0.55);
+  border: 1px solid rgba(124, 58, 237, 0.28);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 26px rgba(124, 58, 237, 0.08), inset 0 0 20px rgba(124, 58, 237, 0.05);
+}
+
+.about-holo-stat:nth-child(odd) {
+  border-color: rgba(0, 212, 255, 0.25);
+  background: rgba(8, 12, 24, 0.55);
+  box-shadow: 0 0 26px rgba(0, 212, 255, 0.07), inset 0 0 20px rgba(0, 212, 255, 0.04);
+}
+
+.about-holo-stat-num,
+.about-holo-stat-plus {
+  font-size: 1.9rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-holo-stat-label {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.about-holo-identity {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 3;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.about-holo-name {
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 24px rgba(0, 212, 255, 0.45), 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+
+.about-holo-role {
+  margin-top: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #00d4ff;
+  text-shadow: 0 0 14px rgba(0, 212, 255, 0.5);
+}
+
+/* Slimmed bento grid: marquee + badge only */
+.about-grid-slim { grid-template-columns: 1fr !important; }
+.about-grid-slim .bento-marquee-card,
+.about-grid-slim .bento-badge-card {
+  grid-area: auto !important;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+.about-grid-slim .bento-badge-card { justify-self: center; }
+
+/* Desktop: panels float INSIDE the hologram at their own depths */
+@media (min-width: 1024px) {
+  .about-scene-full {
+    position: relative;
+    min-height: clamp(560px, 78vh, 720px);
+  }
+  .about-scene-visual { display: contents; }
+  .about-holo-panel,
+  .about-holo-stats { margin: 0; }
+  .about-holo-bio {
+    position: absolute;
+    left: 3.5%;
+    top: calc(50% - 190px);
+    width: min(330px, 26%);
+  }
+  .about-holo-stats {
+    position: absolute;
+    right: 3.5%;
+    top: calc(50% - 170px);
+    width: min(320px, 25%);
+  }
+  .about-holo-identity { bottom: 22px; }
+}
+
+/* ============================================
+   Contact — immersive transmission deck
+   ============================================ */
+.contact-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contact-layer {
+  position: absolute;
+  left: -6%;
+  top: -10%;
+  width: 112%;
+  height: 124%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+.contact-layer-bg { opacity: 0.5; }
+.contact-layer-mid,
+.contact-layer-fg { mix-blend-mode: screen; opacity: 0.8; }
+
+.contact-backdrop-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, #12121a 0%, transparent 18%, transparent 80%, #12121a 100%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(10, 10, 15, 0.55) 100%);
+}
+
+/* Transmission console (form) */
+.contact-console {
+  position: relative;
+  background: rgba(16, 8, 24, 0.6);
+  border: 1px solid rgba(236, 72, 153, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(236, 72, 153, 0.07),
+              inset 0 0 30px rgba(236, 72, 153, 0.03);
+}
+
+.contact-console::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.7), transparent);
+}
+
+.contact-console-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(236, 72, 153, 0.15);
+}
+
+.contact-console-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ec4899;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.9);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.contact-console-title {
+  color: #ec4899;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.contact-console-status {
+  margin-left: auto;
+  color: #64748b;
+  font-size: 0.62rem;
+  letter-spacing: 1.5px;
+}
+
+.contact-field {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-field:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
+}
+
+.contact-send-btn {
+  background: linear-gradient(135deg, #ec4899, #7c3aed);
+  box-shadow: 0 6px 25px rgba(236, 72, 153, 0.3);
+}
+
+.contact-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(236, 72, 153, 0.45);
+}
+
+/* Resume dock */
+.resume-dock {
+  position: relative;
+  background: rgba(16, 8, 24, 0.6);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 34px rgba(124, 58, 237, 0.12), inset 0 0 24px rgba(124, 58, 237, 0.05);
+}
+
+.resume-dock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.8), transparent);
+}
+
+.resume-btn-primary {
+  background: linear-gradient(135deg, #ec4899, #7c3aed);
+  box-shadow: 0 4px 18px rgba(236, 72, 153, 0.3);
+}
+
+.resume-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(236, 72, 153, 0.45);
+}
+
+.resume-btn-ghost {
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.resume-btn-ghost:hover {
+  transform: translateY(-2px);
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(167, 139, 250, 0.7);
+}
+
+/* Contact channel rows */
+.contact-channel {
+  background: rgba(10, 12, 22, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-layer { will-change: auto; }
+  .contact-console-dot { animation: none; }
+}

@@ -2,5 +2,6 @@
 .DS_Store
 .playwright-mcp/
 .superpowers/
-*.docx
+/*.docx
 ~$*
+images/*.png

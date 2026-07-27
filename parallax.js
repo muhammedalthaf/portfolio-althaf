@@ -409,11 +409,48 @@
   var success = document.getElementById('formSuccess');
   if (!form || !success) return;
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+  // FormSubmit privacy alias for muhammedalthaf.althaf@gmail.com — keeps the
+  // raw address out of scrapeable JS.
+  var ENDPOINT = 'https://formsubmit.co/ajax/d43529de958178d8c61c547133d2bbaf';
+
+  function showSuccess() {
     form.style.display = 'none';
     success.classList.remove('hidden');
     success.style.display = 'block';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.querySelector('span') : null;
+    if (btn) btn.disabled = true;
+    if (label) label.textContent = 'Transmitting…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value,
+        _subject: 'Portfolio contact: ' + (form.subject.value || form.name.value),
+        _template: 'table',
+        _captcha: 'false'
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      // FormSubmit's first-ever submission returns an "activate" notice
+      // instead of delivering; the visitor still sees success either way.
+      if (data && String(data.success) === 'false') console.warn('FormSubmit:', data.message);
+      showSuccess();
+    }).catch(function (err) {
+      console.error('FormSubmit failed:', err);
+      if (btn) btn.disabled = false;
+      if (label) label.textContent = 'Failed — please email me directly';
+    });
   });
 })();
 
@@ -693,6 +730,24 @@
 })();
 
 /* ============================================
+   Reload always starts at the top — pinned scroll
+   sections make mid-page scroll restoration jarring.
+   ============================================ */
+(function initScrollReset() {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  // The browser may still attempt restoration around the load event, and
+  // ScrollTrigger re-applies the scrollRestoration value it snapshotted at
+  // script load — so re-assert "top of page" once everything has settled.
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      window.scrollTo(0, 0);
+    }, 0);
+  });
+})();
+
+/* ============================================
    Parallax Engine — GSAP ScrollTrigger
    ============================================ */
 (function initParallax() {
@@ -700,6 +755,9 @@
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   gsap.registerPlugin(ScrollTrigger);
+  // Forget scroll position across reloads — pinned sections make mid-page
+  // restoration jarring; every load starts from the hero.
+  ScrollTrigger.clearScrollMemory('manual');
 
   var isDesktop = window.matchMedia('(min-width: 1024px)').matches;
   var LAG = { far: 200, mid: 120, near: 50, front: -160 };
@@ -888,6 +946,49 @@
   document.querySelectorAll('#tools .tool-bucket').forEach(function (bucket) {
     scrambleAssemble(gsap.utils.toArray(bucket.querySelectorAll('.pour-card')), bucket);
   });
+
+  // About layered scene: each generated layer drifts at its own depth.
+  // Positive travel = lags the scroll (deeper), negative = leads (closer).
+  var aboutScene = document.querySelector('.about-scene');
+  if (aboutScene) {
+    var aboutLayers = [['.about-layer-bg', 30], ['.about-layer-mid', 12],
+                       ['.about-layer-portrait', -14], ['.about-layer-fg', -80]];
+    if (isDesktop) {
+      // Content panels join the depth system (desktop only — they flow
+      // statically below the visual on mobile).
+      aboutLayers.push(['.about-holo-bio', 20], ['.about-holo-stats', -20], ['.about-holo-identity', -6]);
+    }
+    aboutLayers.forEach(function (cfg) {
+      var layer = aboutScene.querySelector(cfg[0]);
+      if (!layer) return;
+      var d = cfg[1] * dist;
+      gsap.fromTo(layer, { y: -d }, {
+        y: d,
+        ease: 'none',
+        scrollTrigger: { trigger: aboutScene, start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  }
+
+  // Contact transmission-deck backdrop: full-section layered parallax.
+  var contactBackdrop = document.querySelector('.contact-backdrop');
+  if (contactBackdrop) {
+    var contactLayers = [['.contact-layer-bg', 40], ['.contact-layer-mid', 15], ['.contact-layer-fg', -70]];
+    if (isDesktop) {
+      // Form console and side column drift gently in opposite directions.
+      contactLayers.push(['.contact-console-col', -10], ['.contact-side-col', 14]);
+    }
+    contactLayers.forEach(function (cfg) {
+      var el = document.querySelector(cfg[0]);
+      if (!el) return;
+      var d = cfg[1] * dist;
+      gsap.fromTo(el, { y: -d }, {
+        y: d,
+        ease: 'none',
+        scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'bottom top', scrub: true }
+      });
+    });
+  }
 
   // Tab filtering shows/hides buckets, changing the page height — recompute
   // every trigger's scroll positions after the 300ms hide transition settles.
