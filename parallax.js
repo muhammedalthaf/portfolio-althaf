@@ -846,7 +846,45 @@
     });
   }
 
-  scrambleAssemble(gsap.utils.toArray('#skills .grid > div'), '#skills .grid');
+  // Technical Skills: 3D swing-in — left-column cards hinge in from the left,
+  // right-column cards from the right, meeting in the middle. Scrubbed, so
+  // scrolling back up swings them out again.
+  var skillCards = gsap.utils.toArray('#skills .grid > div');
+  if (skillCards.length) {
+    gsap.set('#skills .grid', { perspective: 1000 });
+    skillCards.forEach(function (card) {
+      card.style.transition = 'none';
+      card.classList.remove('animate-on-scroll');
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: '#skills .grid',
+        start: 'top 88%',
+        end: 'center 45%',
+        scrub: true,
+        onLeave: function () {
+          skillCards.forEach(function (c) { c.style.transition = ''; });
+          gsap.set(skillCards, { clearProps: 'transform' });
+        },
+        onEnterBack: function () {
+          skillCards.forEach(function (c) { c.style.transition = 'none'; });
+        }
+      }
+    }).fromTo(skillCards, {
+      x: function (i) { return (i % 2 === 0 ? -1 : 1) * Math.min(window.innerWidth * 0.35, 480); },
+      rotationY: function (i) { return i % 2 === 0 ? 55 : -55; },
+      transformOrigin: function (i) { return i % 2 === 0 ? 'left center' : 'right center'; },
+      y: 60,
+      scale: 0.85,
+      opacity: 0
+    }, {
+      x: 0, rotationY: 0, y: 0, scale: 1, opacity: 1,
+      ease: 'power1.out',
+      stagger: 0.12,
+      duration: 1
+    });
+  }
+
   document.querySelectorAll('#tools .tool-bucket').forEach(function (bucket) {
     scrambleAssemble(gsap.utils.toArray(bucket.querySelectorAll('.pour-card')), bucket);
   });
