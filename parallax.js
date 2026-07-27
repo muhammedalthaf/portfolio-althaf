@@ -772,8 +772,9 @@
       scrollTrigger: { trigger: '.timeline', start: 'top 75%', end: 'bottom 55%', scrub: true } });
 
   // Grid cards: alternating column drift for subtle 3D depth.
+  // (#skills grid is excluded — its cards belong to the scramble-assemble effect below.)
   if (isDesktop) {
-    ['#skills .grid', '#projects .grid', '.bento-grid'].forEach(function (sel) {
+    ['#projects .grid', '.bento-grid'].forEach(function (sel) {
       var grid = document.querySelector(sel);
       if (!grid) return;
       Array.prototype.forEach.call(grid.children, function (card, i) {
@@ -795,4 +796,66 @@
       });
     });
   }
+
+  // Scramble-assemble: skills cards and tool cards start scattered across the
+  // screen and converge into place as the section scrolls in; because the
+  // tween is scrubbed, scrolling back up disperses them again.
+  // Deterministic pseudo-random offsets per index (Math.random would reshuffle
+  // on every reload and on ScrollTrigger refresh).
+  function seeded(i, salt) {
+    var s = Math.sin((i + 1) * salt) * 43758.5453;
+    return s - Math.floor(s);
+  }
+
+  function scrambleAssemble(cards, trigger) {
+    if (!cards.length) return;
+    var spread = Math.min(window.innerWidth, 1400) * (isDesktop ? 0.45 : 0.3);
+    cards.forEach(function (card) {
+      // GSAP owns these cards now: kill the CSS reveal/pour transitions so the
+      // scrub isn't rubber-banded, and detach from the reveal observer system.
+      card.style.transition = 'none';
+      card.classList.remove('animate-on-scroll');
+    });
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger,
+        start: 'top 88%',
+        end: 'center 45%',
+        scrub: true,
+        onLeave: function () {
+          // Fully assembled: hand transform control back to CSS so hover
+          // effects (translateY lifts) work while the section is in use.
+          cards.forEach(function (c) { c.style.transition = ''; });
+          gsap.set(cards, { clearProps: 'transform' });
+        },
+        onEnterBack: function () {
+          cards.forEach(function (c) { c.style.transition = 'none'; });
+        }
+      }
+    }).fromTo(cards, {
+      x: function (i) { return (seeded(i, 127.1) - 0.5) * 2 * spread; },
+      y: function (i) { return (seeded(i, 311.7) - 0.4) * 500; },
+      rotation: function (i) { return (seeded(i, 74.7) - 0.5) * 60; },
+      scale: 0.5,
+      opacity: 0
+    }, {
+      x: 0, y: 0, rotation: 0, scale: 1, opacity: 1,
+      ease: 'power1.out',
+      stagger: 0.06,
+      duration: 1
+    });
+  }
+
+  scrambleAssemble(gsap.utils.toArray('#skills .grid > div'), '#skills .grid');
+  document.querySelectorAll('#tools .tool-bucket').forEach(function (bucket) {
+    scrambleAssemble(gsap.utils.toArray(bucket.querySelectorAll('.pour-card')), bucket);
+  });
+
+  // Tab filtering shows/hides buckets, changing the page height — recompute
+  // every trigger's scroll positions after the 300ms hide transition settles.
+  document.querySelectorAll('#tools .tools-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      setTimeout(function () { ScrollTrigger.refresh(); }, 400);
+    });
+  });
 })();
